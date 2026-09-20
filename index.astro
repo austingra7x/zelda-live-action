@@ -1,0 +1,10 @@
+---
+import Layout from "../layouts/Layout.astro";
+import App from "../components/App.tsx";
+import { getCollection } from "astro:content";
+const news = await getCollection("news");
+const videos = await getCollection("videos");
+const pictures = await getCollection("pictures");
+const cast = await getCollection("cast");
+---
+<Layout title="Zelda"><App client:load initialNews={news.map(e=>({id:e.id, ...e.data}))} initialVideos={videos.map(e=>({id:e.id, ...e.data}))} initialPictures={pictures.map(e=>({id:e.id, ...e.data}))} initialCast={cast.map(e=>({id:e.id, ...e.data}))} /></Layout>

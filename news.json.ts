@@ -1,0 +1,1 @@
+import { getCollection } from "astro:content"; export async function GET(){ const news = await getCollection("news"); return new Response(JSON.stringify(news.map(e=>({id:e.id, ...e.data}))), {headers:{"Content-Type":"application/json"}}); }

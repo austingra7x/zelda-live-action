@@ -1,0 +1,1 @@
+import { getCollection } from "astro:content"; export async function GET(){ const p = await getCollection("pictures"); return new Response(JSON.stringify(p.map(e=>({id:e.id, ...e.data})))); }
