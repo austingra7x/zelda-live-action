@@ -1,9 +1,9 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
-import vercel from '@astrojs/vercel/static';
+import vercel from '@astrojs/vercel';
 
 export default defineConfig({
-  output: 'hybrid', // static pages + serverless API
+  output: 'hybrid',
   adapter: vercel(),
   integrations: [react()],
 });
